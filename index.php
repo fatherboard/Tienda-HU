@@ -1,16 +1,23 @@
+<!DOCTYPE html>
+<html>
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet" />
+
+    <title>homepage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet" />
 
 </head>
 
 <body>
 
-    <?php require("includes/common/navbar.php")?>
+    <?php require("includes/common/navbar.php") ?>
     <main>
         <h1>Título</h1>
-        <p><pre>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur commodo enim id varius.
+        <p>
+            <pre>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur commodo enim id varius.
 Mauris dui nisl, semper vel rhoncus sed, commodo quis magna. Ut tempor, odio id tempus pellentesque, mauris
 tellus blandit quam, nec venenatis purus nibh eu dui. Etiam aliquet leo ut eros faucibus pellentesque. 
 Sed dui diam, gravida non luctus in, luctus et urna. Curabitur sed turpis sagittis, viverra ligula nec,
@@ -50,8 +57,9 @@ ultrices. Duis rhoncus egestas sem nec commodo. Nunc hendrerit mauris nec molest
 Proin facilisis, augue id mattis semper, turpis lorem consequat velit, ut venenatis libero
 augue non mi. Morbi malesuada condimentum eleifend. Donec lobortis felis eget nisl luctus
 dapibus aliquet in sem. Fusce at diam mi. Vivamus viverra sollicitudin diam sit amet
-iaculis.</pre></p>
-</main>
+iaculis.</pre>
+        </p>
+    </main>
 
 
 

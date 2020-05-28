@@ -3,17 +3,19 @@
     font-family: 'Roboto Mono', monospace;
     --text-primary: #202C39;
     --text-secundary: #283845;
+    --text-third: rgb(231, 216, 183);
     --bg-primary: #B8B08D;
     --bg-secundary: #F2D492;
-    --bg-third: rgb(180, 130, 96);
+    --bg-third: #9e6f50;
     --elm-primary: #4C5657;
     --icon-primary: rgb(56, 56, 56);
+    --button-primary: #914411;
     --transition-std: 200ms;
 }
 
 body {
     color: black;
-    background-color: rgb(255, 247, 230);
+    background-color: rgb(255, 250, 239);
     margin: 0;
     padding: 0;
 }
@@ -124,10 +126,92 @@ main {
     height: 5rem;
     color: var(--text-primary);
     text-decoration: none;
-    filter: grayscale(70%) opacity(1);
 }
 .branding svg {
     width: 2rem;
     min-width: 2rem;
     margin: 0 1.5rem;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    left: 0;
+    background-color: var(--bg-primary);
+    filter: grayscale(60%) opacity(1);
+    transition: 0ms;
+}
+
+.left:hover {
+    filter: grayscale(20%) opacity(1);
+    transition: var(--transition-std) ease;
+}
+
+.right {
+    right: 0;
+    background-color:var(--bg-third);
+    filter: grayscale(60%) opacity(1);
+    transition: 0ms;
+  }
+
+  .right:hover {
+    filter: grayscale(20%) opacity(1);
+    transition: var(--transition-std) ease;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+form {
+    border: 3px solid #f1f1f1;
+    min-width: 24rem;
+  }
+
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: var(--button-primary);
+    color: var(--text-third);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: 0ms;
+  }
+
+  button:hover {
+    opacity: 0.8;
+    transition: var(--transition-std);
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+.upperLeft a{
+    
+    padding: 5rem;
+    color: var(--text-primary);
+    font-size: 1.5rem;
 }
