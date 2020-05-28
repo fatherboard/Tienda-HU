@@ -8,7 +8,7 @@ class FormLogin extends Form
 
 	public function __construct()
 	{
-		parent::__construct('login');
+		parent::__construct('login', 'login');
 	}
 
 	protected function generaCampos()
@@ -24,7 +24,7 @@ class FormLogin extends Form
 			<input name="password" type="password" id="password" placeholder="Contraseña" required="">
 			</div>
 			<div>
-			<button type="submit" name="login id="submit">ENTRAR</button>
+			<button type="submit" name="login" id="submit">ENTRAR</button>
             </div>
             </div>';
 		return $html;
@@ -51,7 +51,7 @@ class FormLogin extends Form
 
 			if ($userData == null) {
 				$_SESSION['error_login'][] = "Usuario y/o contraseña no son correctos.";
-				return "login.php";
+				return "entrar.php";
 			} else {
 				if ($userData instanceof TOUser) {
 					$encrypted = $userData->get_password();
@@ -67,12 +67,12 @@ class FormLogin extends Form
 					}
 					else {
 						$_SESSION['error_login'][] = "Usuario y/o contraseña no son correctos";
-						return "login.php";
+						return "entrar.php";
 					}
 				} 
 			}
 		} else {
-			return "login.php";
+			return "entrar.php";
 		}
 	}
 }

@@ -6,7 +6,7 @@
     class FormRegister extends Form{
         
         public function __construct(){
-            parent::__construct('register');
+            parent::__construct('register', 'register');
         }
         
         protected function generaCampos(){
@@ -27,10 +27,10 @@
                     <input name="password" type="password" placeholder="Contraseña" />
                 </div>
                 <div>
-                    <input  name="password2" type="password" placeholder="Reintroducir contraseña"/>
+                    <input name="password2" type="password" placeholder="Reintroducir contraseña"/>
                 </div>
                 <div>
-                    <input  name="direccion" type="text" placeholder="Dirección"/>
+                    <input name="direccion" type="text" placeholder="Dirección"/>
                 </div>
 
                 <div>

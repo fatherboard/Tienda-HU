@@ -6,11 +6,12 @@ abstract class Form {
 	private $name;
 	private $action;
 
-	public function __construct($name){
+	public function __construct($name, $formId){
 		if ( !$this->action ) {
             $this->action = htmlentities($_SERVER['REQUEST_URI']);
         }
         $this->name = $name;
+        $this->formId = $formId;
 	}
 
 	public function gestiona(){

@@ -146,24 +146,25 @@ main {
 .left {
     left: 0;
     background-color: var(--bg-primary);
-    filter: grayscale(60%) opacity(1);
+    filter: grayscale(60%) opacity(0.7);
     transition: 0ms;
 }
 
 .left:hover {
-    filter: grayscale(20%) opacity(1);
+    filter: grayscale(20%) opacity(0.9);
     transition: var(--transition-std) ease;
+    background-image: url(/img/hu.svg);
 }
 
 .right {
     right: 0;
     background-color:var(--bg-third);
-    filter: grayscale(60%) opacity(1);
+    filter: grayscale(60%) opacity(0.7);
     transition: 0ms;
   }
 
   .right:hover {
-    filter: grayscale(20%) opacity(1);
+    filter: grayscale(20%) opacity(0.9);
     transition: var(--transition-std) ease;
 }
 
@@ -178,18 +179,18 @@ main {
 form {
     border: 3px solid #f1f1f1;
     min-width: 24rem;
-  }
+}
 
-  input[type=text], input[type=password] {
+input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-  }
+}
 
-  button {
+button {
     background-color: var(--button-primary);
     color: var(--text-third);
     padding: 14px 20px;
@@ -198,20 +199,28 @@ form {
     cursor: pointer;
     width: 100%;
     transition: 0ms;
-  }
+}
 
-  button:hover {
+button:hover {
     opacity: 0.8;
     transition: var(--transition-std);
-  }
+}
 
-  .container {
+.container {
     padding: 16px;
-  }
+}
 
-.upperLeft a{
-    
+.entrarBackground {
+    position: absolute ; /* or absolute */
+    top: 40%;
+    left: 35%;
+    width: 30%;
+    z-index: 0;
+}
+
+.upperLeft{
     padding: 5rem;
     color: var(--text-primary);
     font-size: 1.5rem;
 }
+
