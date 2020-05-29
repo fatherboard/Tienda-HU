@@ -250,3 +250,27 @@ button:hover {
     flex-direction: column;
     margin-top: 3rem;
 }
+
+.productPic {
+    width: 20rem;
+    border-radius: 50%;
+    border-style: solid;
+    transition: transform var(--transition-std);
+}
+
+.productPic:hover {
+    transform: rotate(-720deg);
+}
+
+.store {
+    display: block;
+    float: left;
+    width: 25%;
+    
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.description {
+    min-height: 6rem;
+}
