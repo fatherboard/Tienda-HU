@@ -18,7 +18,7 @@ if (!isset($_SESSION)) {
 </head>
 
 <body>
-
+    <?php require("includes/common/watermark.php") ?>
     <?php require("includes/common/navbar.php") ?>
     <main>
         <h1>Título</h1>

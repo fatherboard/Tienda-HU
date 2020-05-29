@@ -22,7 +22,7 @@ $products = $dao_product->show_all_products();
 </head>
 
 <body>
-
+    <?php require("includes/common/watermark.php") ?>
     <?php require("includes/common/navbar.php") ?>
     <main>
 
@@ -51,7 +51,7 @@ $products = $dao_product->show_all_products();
             echo $prodDes;
             echo '</div>';
             echo "</br></br>";
-            echo $prodPri . '€ <a href="">Añadir al carrito</a> ';
+            echo $prodPri . '€ <button class="primaryButton" onclick="window.location.href=\'/page2\'">Añadir al carrito</button> ';
             echo "</br></br>";
             echo '</div>';
         }

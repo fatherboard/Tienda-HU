@@ -274,3 +274,12 @@ button:hover {
 .description {
     min-height: 6rem;
 }
+
+.watermark {
+    right: 1%;
+    position: fixed;
+    top: 1rem;
+    background-color: var(--bg-secundary);
+    border-radius: 50%;
+    padding: 0.7rem;
+}
