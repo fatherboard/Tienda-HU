@@ -24,7 +24,7 @@ class FormLogin extends Form
 			<input name="password" type="password" id="password" placeholder="Contraseña" required="">
 			</div>
 			<div>
-			<button type="submit" name="login" id="submit">ENTRAR</button>
+			<button class="primaryButton" type="submit" name="login" id="submit">ENTRAR</button>
             </div>
             </div>';
 		return $html;
@@ -32,6 +32,10 @@ class FormLogin extends Form
 
 	protected function procesaFormulario($datos)
 	{
+		/* DEBUG
+		echo $datos['username'];
+		echo $datos['password'];
+		*/
 
 		$_SESSION['error_login'] = [];
 		$username = isset($datos['username']) ? $datos['username'] : null;
@@ -58,15 +62,10 @@ class FormLogin extends Form
 					if (password_verify($password, $encrypted)) {
 						$_SESSION['login'] = '1';
 						$_SESSION['username'] = $username;
-						if ($userData->isAdmin()) {
-							$_SESSION['admin'] = '1';
-						} else {
-							$_SESSION['admin'] = '0';
-						}
 						return "perfil.php";
 					}
 					else {
-						$_SESSION['error_login'][] = "Usuario y/o contraseña no son correctos";
+						$_SESSION['error_login'][] = "Usuario y/o contraseña no son correctooooos";
 						return "entrar.php";
 					}
 				} 

@@ -34,7 +34,7 @@
                 </div>
 
                 <div>
-                    <button type="submit" name="register">REGISTRARSE</button>
+                    <button class="primaryButton" type="submit" name="register">REGISTRARSE</button>
                 </div>
                 </div>';
             return $html;
@@ -52,7 +52,7 @@
             $password = $_REQUEST["password"];
             $password2 = $_REQUEST["password2"];
             $nombre= htmlspecialchars(trim(strip_tags($_REQUEST["nombre"])));
-            $direccion= htmlspecialchars(trim(strip_tags($_REQUEST["direccion"])));
+            $direccion = htmlspecialchars(trim(strip_tags($_REQUEST["direccion"])));
             $_SESSION['error_registro'] = [];
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {  //Se comprueba si el formato del email es correcto, si no, error

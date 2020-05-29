@@ -34,13 +34,13 @@ class DAOUser extends DAO {
 
 	
 	public function search_userId($userId){
-		$sql = sprintf("SELECT * FROM user WHERE id_User = $userId");
+		$sql = sprintf("SELECT * FROM user WHERE id = $userId");
 		if (!$this->ejecutarConsulta($sql))
 			return null;
 		
 		
 		$result = $this->ejecutarConsulta($sql);
-		$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'], $result['name'], $result['address']);
+		$user = new TOUser($result['id'],$result['email'],$result['password'],$result['username'], $result['name'], $result['address']);
 		return $user;
 		
 	}
@@ -52,7 +52,7 @@ class DAOUser extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'], $result['name'], $result['address']);
+			$user = new TOUser($result['id'],$result['email'],$result['password'],$result['username'], $result['name'], $result['address']);
 			return $user;
 		}	
 	}
@@ -73,7 +73,7 @@ class DAOUser extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'], $result['name'], $result['address']);
+			$user = new TOUser($result['id'],$result['email'],$result['password'],$result['username'], $result['name'], $result['address']);
 			return $user;
 		}
 	}
@@ -85,7 +85,7 @@ class DAOUser extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'], $result['name'], $result['address']);
+			$user = new TOUser($result['id'],$result['email'],$result['password'],$result['username'], $result['name'], $result['address']);
 			return $user;
 		}
 	}

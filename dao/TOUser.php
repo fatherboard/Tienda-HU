@@ -16,17 +16,7 @@ class TOUser {
 		$this->password = $password;
 		$this->user_name = $user_name;
 		$this->name = $name;
-		$this->aboutMe = $address;
-	}
-	
-	public function create_User($columna){
-		$this->email = $columna['email'];
-		$this->password = $columna['password'];
-		$this->user_name = $columna['user_name'];
-		$this->premium = $columna['premium'];		
-		$this->admin = $columna['admin'];
-		$this->name = $columna['name'];
-		$this->aboutMe = $columna['aboutMe'];
+		$this->address = $address;
 	}
 
 	public function set_email($correo){
