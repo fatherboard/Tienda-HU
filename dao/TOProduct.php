@@ -1,7 +1,7 @@
 <?php
 
 /* Transfer Object */
-class TOProducts {
+class TOProduct {
 
 	private $id;
 	private $name;

@@ -1,10 +1,10 @@
 <?php
 
 include_once('DAO.php');
-include_once('TOProducts.php');
+include_once('TOProduct.php');
 
 /* Data Access Object */
-class DAOProducts extends DAO
+class DAOProduct extends DAO
 {
 
     /*  El DAO utiliza el Trasfer Object (TO) para pasarnos la info
@@ -18,11 +18,11 @@ class DAOProducts extends DAO
     }
 
 
-    public function insert_Product($TOProducts)
+    public function insert_Product($TOProduct)
     {
-        $name = $TOProducts->get_email();
-        $description = $TOProducts->get_password();
-        $price = $TOProducts->get_username();
+        $name = $TOProduct->get_email();
+        $description = $TOProduct->get_password();
+        $price = $TOProduct->get_username();
         $sql = "INSERT INTO products SET name='$name' , description='$description', price='$price'";
 
         if (!$this->insertarConsulta($sql))
@@ -41,7 +41,7 @@ class DAOProducts extends DAO
 
 
         $result = $this->ejecutarConsulta($sql);
-        $product = new TOUser($result['id'], $result['name'], $result['description'], $result['price']);
+        $product = new TOProduct($result['id'], $result['name'], $result['description'], $result['price']);
         return $product;
     }
 
