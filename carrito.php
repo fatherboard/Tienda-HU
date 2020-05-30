@@ -13,8 +13,9 @@ $dao_user = new DAOUser();
 $dao_order = new DAOOrder();
 $dao_order_product = new DAOOProduct();
 
-$userId = $dao_user->search_username($_SESSION['username'])->get_id();
-
+if (isset($_SESSION['login']) && $_SESSION['login']) {
+    $userId = $dao_user->search_username($_SESSION['username'])->get_id();
+}
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['borrar'])) {
     $id = $_POST['id'];
@@ -30,14 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['realizarPedido'])) {
     $order = new TOOrder('', $userId, $subtotal, '');
     $dao_order->insert_order($order);
     $orderId = $dao_order->get_last_id();
-    foreach($productIds as $product){
+    foreach ($productIds as $product) {
         $productPrice = $dao_product->get_product($product)->get_price();
         $order_product = new TOOProduct('', $orderId, $product, $productPrice);
         $dao_order_product->insert_Product($order_product);
     }
     unset($_SESSION['cart']);
     header('Location: perfil.php');
-    
 }
 
 ?>
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['realizarPedido'])) {
                 $prodId = $curr_product->get_id();
                 $prodName = $curr_product->get_name();
                 $prodPri = $curr_product->get_price();
-                
+
 
                 $filePath = "img/products/" . $prodId . ".png";
                 if (file_exists($filePath)) { ?>
@@ -102,13 +102,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['realizarPedido'])) {
                 echo '</div></div>';
             }
             echo '<h2 class="cartTotal">Total: ' . $total . ' €</h2>';
-            echo "<form action=\"\" method=\"post\">";
-            echo '<input type="hidden" name="total" value=' . $total . ' />';
-            echo "<input class=\"primaryButton\" type=\"submit\" name=\"realizarPedido\" value=\"Realizar Pedido\" />";
-            echo "</form>";
-        }
-
-        else {
+            if (isset($_SESSION['login']) && $_SESSION['login']) {
+                echo "<form action=\"\" method=\"post\">";
+                echo '<input type="hidden" name="total" value=' . $total . ' />';
+                echo "<input class=\"primaryButton\" type=\"submit\" name=\"realizarPedido\" value=\"Realizar Pedido\" />";
+                echo "</form>";
+            } else {
+                echo '<a href="entrar.php" >Necesitas estar logueado para realizar pedidos</a>';
+            }
+        } else {
             echo "Tu carrito está vacío";
         }
             ?>

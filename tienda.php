@@ -28,7 +28,7 @@ $products = $dao_product->show_all_products();
     <?php require("includes/common/navbar.php") ?>
     <main>
 
-
+        <h1>Nuestros Productos</h1>
         <?php
         while (!empty($products)) {
             $curr_product = array_shift($products);
@@ -42,11 +42,11 @@ $products = $dao_product->show_all_products();
             $filePath = "img/products/" . $prodId . ".png";
             if (file_exists($filePath)) { ?>
                 <div class="store"><img class="productPic" alt="foto_producto" src=" <?php echo $filePath ?>">
-            <?php } else { ?>
-                <img class="productPic" alt="foto_producto_noencontrado" src="img/notfound.jpg">
-        <?php }
+                <?php } else { ?>
+                    <img class="productPic" alt="foto_producto_noencontrado" src="img/notfound.jpg">
+            <?php }
 
-    
+
             echo '<h2 class="storeProduct">' . $prodName . '</h2>';
             echo "</br></br>";
             echo '<div class="description">';
@@ -57,9 +57,7 @@ $products = $dao_product->show_all_products();
             echo "</br></br>";
             echo '</div>';
         }
-        
-
-        ?>
+            ?>
 
     </main>
 
