@@ -42,7 +42,7 @@ abstract class Form {
 
 	private function generaFormulario($errores = array(), &$datos = array()){
 
-		$html  = '<form name="'.$this->name.'" method="post" action = "'. $this->action .'"id="'.$this->formId.'">';
+		$html  = '<form class="formClass" name="'.$this->name.'" method="post" action = "'. $this->action .'"id="'.$this->formId.'">';
         $html .= '<input type="hidden" name="action" value="'.$this->formId.'" />';
 
 		$html .= $this->generaCampos();

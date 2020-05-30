@@ -17,7 +17,7 @@ array_push($_SESSION['cart'], $_GET['id']);
 
 <head>
 
-    <title>homepage</title>
+    <title>añadido</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
@@ -30,7 +30,7 @@ array_push($_SESSION['cart'], $_GET['id']);
     <?php require("includes/common/navbar.php") ?>
     <main>
         <h2>Producto añadido al carrito.</h2>
-        <a href="carrito.php">Ver el carrito</a>
+        <a href="carrito.php">Ver el carrito</a></br></br>
         <a href="tienda.php">Volver a la tienda</a>
     </main>
 
