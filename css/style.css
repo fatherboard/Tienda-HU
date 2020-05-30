@@ -363,3 +363,16 @@ input[type=text], input[type=password] {
     border-style: solid;
     margin: 1rem;
 }
+
+.portada {
+    display: block;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-style: groove;
+}
+
+.centrado {
+    text-align: center;
+}

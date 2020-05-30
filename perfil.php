@@ -43,7 +43,7 @@ $address = $user->get_address();
             <h3 class="point">• Email: </br><?php echo $email; ?></h3>
             <h3 class="point">• Dirección de envío: </br><?php echo $address; ?></h3>
         </div>
-        <button class="primaryButton" onclick="window.location.href='/page2'">Cambiar información perosnal</button>
+        
 
         <div class="orders">
             <h1 class="title">Mis Pedidos</h1>
@@ -59,39 +59,40 @@ $address = $user->get_address();
                 $orderTotal = $curr_order->get_subtotal();
                 $orderDate = $curr_order->get_date();
             ?>
-                <div class="order-frame"><div class="order">
-                    <h3 class="order-element">• Nº Pedido: </br><?php echo $orderId; ?></h3>
-                    <h3 class="order-element">• Total: </br><?php echo $orderTotal; ?> €</h3>
-                    <h3 class="order-element">• Fecha: </br><?php echo $orderDate; ?></h3>
-                </div>
+                <div class="order-frame">
+                    <div class="order">
+                        <h3 class="order-element">• Nº Pedido: </br><?php echo $orderId; ?></h3>
+                        <h3 class="order-element">• Total: </br><?php echo $orderTotal; ?> €</h3>
+                        <h3 class="order-element">• Fecha: </br><?php echo $orderDate; ?></h3>
+                    </div>
 
-                <?php
+                    <?php
 
-                $orderProducts = $dao_order_products->show_order_items($orderId);
+                    $orderProducts = $dao_order_products->show_order_items($orderId);
 
-                while (!empty($orderProducts)) {
-                    $curr_item = array_shift($orderProducts);
-                    $itemId = $curr_item->get_item();
-                    $itemPrice = $curr_item->get_price();
-                    $itemName = $dao_product->get_product($itemId)->get_name();
+                    while (!empty($orderProducts)) {
+                        $curr_item = array_shift($orderProducts);
+                        $itemId = $curr_item->get_item();
+                        $itemPrice = $curr_item->get_price();
+                        $itemName = $dao_product->get_product($itemId)->get_name();
 
-                    $filePath = "img/products/" . $itemId . ".png";
-                    if (file_exists($filePath)) { ?>
-                        <div class="profileOrder"><img class="orderPic" alt="foto_producto" src=" <?php echo $filePath ?>">
-                        <?php } else { ?>
-                            <img class="orderPic" alt="foto_producto_noencontrado" src="img/notfound.jpg">
-                <?php }
+                        $filePath = "img/products/" . $itemId . ".png";
+                        if (file_exists($filePath)) { ?>
+                            <div class="profileOrder"><img class="orderPic" alt="foto_producto" src=" <?php echo $filePath ?>">
+                            <?php } else { ?>
+                                <img class="orderPic" alt="foto_producto_noencontrado" src="img/notfound.jpg">
+                    <?php }
 
 
-                    echo '<h4>' . $itemName . ' </h4>';
-                    echo '<h4 class="itemPrice">' . $itemPrice . ' €</h4>';
-                    echo "</br></br>";
+                        echo '<h4>' . $itemName . ' </h4>';
+                        echo '<h4 class="itemPrice">' . $itemPrice . ' €</h4>';
+                        echo "</br></br>";
+                        echo '</div>';
+                    }
                     echo '</div>';
                 }
-                echo '</div>';
-            }
-
-                ?>
-                        </div>
+                $dao_user->disconnect();
+                    ?>
+                            </div>
     </main>
 </body>

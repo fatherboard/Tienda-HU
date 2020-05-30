@@ -80,6 +80,7 @@ if (!isset($_SESSION)) {
             }
             unset($_SESSION['error_registro']);
         }
+        
         ?>
 
 

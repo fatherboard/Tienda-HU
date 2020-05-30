@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $message = $_POST['message'];
     $packet = new TOMessage('', $userId, $message);
     $dao_message->insert_message($packet);
+    $dao_user->disconnect();
     header('Location: index.php?mensajeEnviado');
 }
 
@@ -49,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         } else {
             echo "Necesitas estar logueado para enviarnos mensajes desde la plataforma";
         }
+        
         ?>
     </main>
 

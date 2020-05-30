@@ -73,6 +73,7 @@ class FormLogin extends Form
 		} else {
 			return "entrar.php";
 		}
+		$dao_usuario->disconnect();
 	}
 }
 

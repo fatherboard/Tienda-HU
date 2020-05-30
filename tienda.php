@@ -57,6 +57,7 @@ $products = $dao_product->show_all_products();
             echo "</br></br>";
             echo '</div>';
         }
+        $dao_product->disconnect();
             ?>
 
     </main>

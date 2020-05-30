@@ -110,8 +110,7 @@
             else {  //En caso contrario vuelta a registro.php con los errores
                 return "entrar.php";
             }
-
+            $dao_usuario->disconnect();
         }
-
+       
 }
-    ?>

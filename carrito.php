@@ -113,6 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['realizarPedido'])) {
         } else {
             echo "Tu carrito está vacío";
         }
+        $dao_user->disconnect();
             ?>
     </main>
 
