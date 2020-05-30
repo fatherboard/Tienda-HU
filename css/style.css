@@ -376,3 +376,7 @@ input[type=text], input[type=password] {
 .centrado {
     text-align: center;
 }
+
+.errores {
+    color: red;
+}

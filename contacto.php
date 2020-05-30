@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $dao_user = new DAOUser();
     $dao_message = new DAOMessage();
     $userId = $dao_user->search_username($_SESSION['username'])->get_id();
-    $message = $_POST['message'];
+    $message = htmlspecialchars(trim(strip_tags($_POST['message'])));
     $packet = new TOMessage('', $userId, $message);
     $dao_message->insert_message($packet);
     $dao_user->disconnect();
