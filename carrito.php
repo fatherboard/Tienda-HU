@@ -28,8 +28,8 @@ $dao_product = new DAOProduct();
 
         <?php
         if (isset($_SESSION['cart'])) {
-            
-            $ids = implode(',', $_SESSION['cart']);
+            $idArray = $_SESSION['cart'];
+            $ids = implode(',', $idArray);
             $inCart = $dao_product->get_products($ids);
 
             if (!empty($inCart)) {
@@ -49,9 +49,13 @@ $dao_product = new DAOProduct();
                             <img class="cartPic" alt="foto_producto_noencontrado" src="img/notfound.jpg">
             <?php }
 
-
-                    echo '<h2 class="cartName">' . $prodName . ' </h2>';
-                    echo '<h2 class="cartPrice"> ' . $prodPri . '€</h2>';
+                    $cnt = count(array_keys($idArray, $prodId));
+                    echo '<h2 class="cartName">' . $prodName;
+                    if ($cnt > 1){
+                        echo ' x' . $cnt;
+                    }
+                    echo '</h2>';
+                    echo '<h2 class="cartPrice"> ' . $prodPri * $cnt. '€</h2>';
                     echo '</div>';
                 }
                 echo '<h2 class="cartTotal">Total: ' . $total . '€</h2>';
