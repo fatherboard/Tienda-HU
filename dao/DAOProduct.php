@@ -33,19 +33,24 @@ class DAOProduct extends DAO
     }
 
 
-    public function show_all_products(){
-		$sql = sprintf("SELECT * FROM products ORDER BY id ASC");
-		$query = $this->devolverConsulta($sql);
+    public function show_all_products()
+    {
+        $sql = sprintf("SELECT * FROM products ORDER BY id ASC");
+        $query = $this->devolverConsulta($sql);
         $array = [];
-        while($result = mysqli_fetch_assoc($query)){
-            $product = new TOProduct($result['id'], 
-            $result['name'], $result['description'], $result['price']);			
+        while ($result = mysqli_fetch_assoc($query)) {
+            $product = new TOProduct(
+                $result['id'],
+                $result['name'],
+                $result['description'],
+                $result['price']
+            );
 
             array_push($array, $product);
         }
 
-		return $array; 
-  }
+        return $array;
+    }
 
     public function search_product($id)
     {
@@ -58,6 +63,26 @@ class DAOProduct extends DAO
         $product = new TOProduct($result['id'], $result['name'], $result['description'], $result['price']);
         return $product;
     }
+
+    public function get_products($id_array)
+    {
+        $sql = sprintf("SELECT * FROM products WHERE id IN ($id_array)");
+        $query = $this->devolverConsulta($sql);
+        $array = [];
+        while ($result = mysqli_fetch_assoc($query)) {
+            $product = new TOProduct(
+                $result['id'],
+                $result['name'],
+                $result['description'],
+                $result['price']
+            );
+
+            array_push($array, $product);
+        }
+
+        return $array;
+    }
+
 
     public function update_name($id, $name)
     {

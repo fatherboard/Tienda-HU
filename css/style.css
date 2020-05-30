@@ -283,3 +283,33 @@ button:hover {
     border-radius: 50%;
     padding: 0.7rem;
 }
+
+.cart {
+    display: flex;
+    margin: 2rem;
+}
+
+.cartPic {
+    width: 5rem;
+    border-radius: 50%;
+    border-style: solid;
+    margin-right: 2rem;
+    transition: transform var(--transition-std);
+}
+
+.cartPic:hover {
+    transform: rotate(-360deg);
+}
+
+.cartName{
+    margin-right: 2rem;
+}
+
+.cartPrice {
+    background-color: var(--bg-primary);
+}
+
+.cartTotal {
+    background-color: var(--bg-third);
+    border-style: solid;
+}
