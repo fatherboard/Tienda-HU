@@ -331,3 +331,35 @@ input[type=text], input[type=password] {
     width: 100%;
     transition: 0ms;
 }
+
+.order {
+    display: flex;
+    flex-direction: row;
+}
+
+.profileOrder{
+    display: flex;
+    flex-direction: row;
+}
+
+.orderPic {
+    margin: 2rem;
+    width: 5rem;
+    border-radius: 50%;
+    border-style: solid;
+    margin-right: 2rem;
+    transition: transform var(--transition-std);
+}
+
+.order-element {
+    margin: 2rem;
+}
+
+.itemPrice {
+    margin-left: 1rem;
+}
+
+.order-frame {
+    border-style: solid;
+    margin: 1rem;
+}

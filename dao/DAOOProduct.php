@@ -35,15 +35,15 @@ class DAOOProduct extends DAO
 
     public function show_order_items($id)
     {
-        $sql = sprintf("SELECT * FROM orders ORDER BY id DESC");
+        $sql = sprintf("SELECT * FROM orders_products WHERE order_id=$id ORDER BY item DESC");
         $query = $this->devolverConsulta($sql);
         $array = [];
         while ($result = mysqli_fetch_assoc($query)) {
             $product = new TOOProduct(
                 $result['id'],
-                $result['order'],
-                $result['subtotal'],
-                $result['date']
+                $result['order_id'],
+                $result['item'],
+                $result['price']
             );
 
             array_push($array, $product);
