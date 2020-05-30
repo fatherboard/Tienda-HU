@@ -4,7 +4,16 @@ if (!isset($_SESSION)) {
 }
 
 include_once('dao/DAOProduct.php');
+include_once('dao/DAOUser.php');
+include_once('dao/DAOOrder.php');
+include_once('dao/DAOOProduct.php');
+
 $dao_product = new DAOProduct();
+$dao_user = new DAOUser();
+$dao_order = new DAOOrder();
+$dao_order_product = new DAOOProduct();
+
+$userId = $dao_user->search_username($_SESSION['username'])->get_id();
 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['borrar'])) {
@@ -16,7 +25,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['borrar'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['realizarPedido'])) {
-    $productIds = $_POST['products'];
+    $subtotal = $_POST['total'];
+    $productIds = $_SESSION['cart'];
+    $order = new TOOrder('', $userId, $subtotal, '');
+    $dao_order->insert_order($order);
+    $orderId = $dao_order->get_last_id();
+    foreach($productIds as $product){
+        $productPrice = $dao_product->get_product($product)->get_price();
+        $order_product = new TOOProduct('', $orderId, $product, $productPrice);
+        $dao_order_product->insert_Product($order_product);
+    }
+    unset($_SESSION['cart']);
+    header('Location: perfil.php');
     
 }
 
@@ -81,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['realizarPedido'])) {
             }
             echo '<h2 class="cartTotal">Total: ' . $total . ' €</h2>';
             echo "<form action=\"\" method=\"post\">";
-            echo '<input type="hidden" name="products" value=' . $idArray . ' />';
+            echo '<input type="hidden" name="total" value=' . $total . ' />';
             echo "<input class=\"primaryButton\" type=\"submit\" name=\"realizarPedido\" value=\"Realizar Pedido\" />";
             echo "</form>";
         }

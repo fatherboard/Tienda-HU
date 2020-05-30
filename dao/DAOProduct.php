@@ -52,7 +52,7 @@ class DAOProduct extends DAO
         return $array;
     }
 
-    public function search_product($id)
+    public function get_product($id)
     {
         $sql = sprintf("SELECT * FROM products WHERE id = $id");
         if (!$this->ejecutarConsulta($sql))

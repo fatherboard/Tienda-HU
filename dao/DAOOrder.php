@@ -18,7 +18,7 @@ class DAOOrder extends DAO
     }
 
 
-    public function insert_Product($TOOrder)
+    public function insert_order($TOOrder)
     {
         $user = $TOOrder->get_user();
         $subtotal = $TOOrder->get_subtotal();
@@ -32,9 +32,9 @@ class DAOOrder extends DAO
     }
 
 
-    public function show_all_orders()
+    public function show_user_orders($user)
     {
-        $sql = sprintf("SELECT * FROM orders ORDER BY id DESC");
+        $sql = sprintf("SELECT * FROM orders WHERE user=$user ORDER BY id DESC");
         $query = $this->devolverConsulta($sql);
         $array = [];
         while ($result = mysqli_fetch_assoc($query)) {
@@ -62,5 +62,9 @@ class DAOOrder extends DAO
         $product = new TOOrder($result['id'], $result['name'], $result['description'], $result['price']);
         return $product;
     }
+
+    public function get_last_id() {
+        return mysqli_insert_id($this->conn);
+      }
 
 }
